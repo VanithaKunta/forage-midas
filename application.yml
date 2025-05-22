@@ -1,0 +1,19 @@
+general:
+  kafka-topic: forage-midas
+
+spring:
+  kafka:
+    consumer:
+      group-id: jpmc.midas
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+server:
+  port: 33400
